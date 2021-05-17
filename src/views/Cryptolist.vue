@@ -59,6 +59,7 @@ export default {
 background: #0F0E17;
 }
 .card-wrapper {
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .list-card {
