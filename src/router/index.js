@@ -20,7 +20,7 @@ const routes = [
   //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   // },
   {
-    path: '/',
+    path: '/cryptolist',
     name: 'Cryptolist',
     component: Cryptolist
   },

@@ -1,5 +1,5 @@
 <template>
-  <div id="list-container">
+  <div class="list-container">
     <div class="list-title">
       <p>銘柄一覧</p>
     </div>
@@ -55,17 +55,25 @@ export default {
 </script>
 
 <style scoped>
-#list-container {
-background: #0F0E17;
+.list-container {
+  width: 100%;
+  height: 100vh;
+  background: #0F0E17;
+  position: relative;
+  display: block;
+}
+p {
+  color: #FFFFFE;
 }
 .card-wrapper {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  position: relative;
+  width: 50%;
+  top: 45%;
 }
 .list-card {
   text-align: center;
-}
-.h2 {
-  color: FFFFFE;
 }
 </style>

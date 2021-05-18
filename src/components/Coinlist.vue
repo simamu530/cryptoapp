@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="list-wrapper">
   <h2>{{ name }}</h2>
   <p>{{ description }}</p>
   </div>
@@ -13,7 +13,13 @@ export default {
 </script>
 
 <style scoped>
+.list-wrapper{
+  margin: 5% 5% 10% 10%;
+}
 h2 {
-  color: FFFFFE;
+  color: #FFFFFE;
+}
+p {
+  color: #A7A9BE;
 }
 </style>
