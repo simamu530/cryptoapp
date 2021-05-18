@@ -62,18 +62,32 @@ export default {
   position: relative;
   display: block;
 }
+.list-title{
+  display: flex;
+  justify-content: center;
+  flex: wrap;
+}
 p {
   color: #FFFFFE;
+  font-size: 64px;
+  font-weight: bold;
+  justify-content: center;
 }
 .card-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   position: relative;
-  width: 50%;
+  width: 60%;
   top: 45%;
+
 }
 .list-card {
   text-align: center;
+  margin: 1em 1em 1em 1em;
+}
+
+@media screen and (max-width: 768px){
+
 }
 </style>
