@@ -4,25 +4,16 @@
       <p>銘柄一覧</p>
     </div>
     <div class="card-wrapper">
-      <div class="list-card" v-for="detail in details" :key="detail.id">
+      <div class="list-card">
         <Coinlist name = "BTC" />
         <Coinlist description = "ビットコイン（現物取引）" />
-        <router-link :to="`/detail/${detail.id}`">
-        <button class="coin-detail">詳細</button>
-        </router-link>
+        <button class="coin-detail" @click="transition(detail.id)">詳細</button>
       </div>
       <div class="list-card">
         <Coinlist name = "BTC" />
         <Coinlist description =
          "ビットコイン
         （現物取引）" />
-        <router-link to="/detail">
-        <button class="coin-detail">詳細</button>
-        </router-link>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
         <button class="coin-detail">詳細</button>
       </div>
       <div class="list-card">
@@ -45,10 +36,10 @@
         <Coinlist description = "ビットコイン（現物取引）" />
         <button class="coin-detail">詳細</button>
       </div>
-      <div v-for="detail in details" :key="detail.id">
-        <router-link :to="`/detail/${detail.id}`">
-        {{ detail.title }}
-        </router-link>
+      <div class="list-card">
+        <Coinlist name = "BTC" />
+        <Coinlist description = "ビットコイン（現物取引）" />
+        <button class="coin-detail">詳細</button>
       </div>
     </div>
   </div>
@@ -67,17 +58,50 @@ export default {
       details: [
         {
           id:1,
-          title:'BTC'
+          title:"BTC"
         },
         {
           id:2,
-          title:'ETH'
+          title:"ETH"
         },
         {
           id:3,
-          title:'BCH'
-        }
+          title:"BCH"
+        },
+        {
+          id:4,
+          title:"LTC"
+        },
+        {
+          id:5,
+          title:"XRP"
+        },
+        {
+          id:6,
+          title:"BTC_JPY"
+        },
+        {
+          id:7,
+          title:"ETH_JPY"
+        },
+        {
+          id:8,
+          title:"BCH_JPY"
+        },
+        {
+          id:9,
+          title:"LTC_JPY"
+        },
+        {
+          id:10,
+          title:"XRP_JPY"
+        },
       ]
+    }
+  },
+  methods: {
+    transition(dataId) {
+      this.$router.push({ name: "detail",params: { id: dataId }});
     }
   }
 }

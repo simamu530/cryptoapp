@@ -27,7 +27,8 @@ const routes = [
   {
     path: '/detail/:id',
     name: 'detail',
-    component: () => import('../views/CryptoDetail.vue')
+    component: () => import('../views/CryptoDetail.vue'),
+    props: true,
   }
 ]
 
