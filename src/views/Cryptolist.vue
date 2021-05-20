@@ -2,19 +2,24 @@
   <div class="list-container">
     <div class="list-title">
       <p>銘柄一覧</p>
+      <router-link to="/detail">deta</router-link>
     </div>
     <div class="card-wrapper">
-      <div class="list-card">
+      <div class="list-card"  v-for="detail in details" :key="detail.id">
         <Coinlist name = "BTC" />
         <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail" @click="transition(detail.id)">詳細</button>
+        <router-link to="/detail">
+        <button class="coin-detail">詳細</button>
+        </router-link>
       </div>
       <div class="list-card">
         <Coinlist name = "BTC" />
         <Coinlist description =
          "ビットコイン
         （現物取引）" />
+        <router-link to="/detail">
         <button class="coin-detail">詳細</button>
+        </router-link>
       </div>
       <div class="list-card">
         <Coinlist name = "BTC" />
@@ -49,6 +54,12 @@
 import Coinlist from "@/components/Coinlist.vue";
 
 export default {
+  props:{
+    id:{
+      type:String,
+      required:true,
+    }
+  },
   name: "Cryptolist",
   components: {
     Coinlist,
@@ -58,52 +69,47 @@ export default {
       details: [
         {
           id:1,
-          title:"BTC"
+          title:'BTC'
         },
         {
           id:2,
-          title:"ETH"
+          title:'ETH'
         },
         {
           id:3,
-          title:"BCH"
+          title:'BCH'
         },
         {
           id:4,
-          title:"LTC"
+          title:'LTC'
         },
         {
           id:5,
-          title:"XRP"
+          title:'XRP'
         },
         {
           id:6,
-          title:"BTC_JPY"
+          title:'BTC_JPY'
         },
         {
           id:7,
-          title:"ETH_JPY"
+          title:'ETH_JPY'
         },
         {
           id:8,
-          title:"BCH_JPY"
+          title:'BCH_JPY'
         },
         {
           id:9,
-          title:"LTC_JPY"
+          title:'LTC_JPY'
         },
         {
           id:10,
-          title:"XRP_JPY"
+          title:'XRP_JPY'
         },
       ]
     }
   },
-  methods: {
-    transition(dataId) {
-      this.$router.push({ name: "detail",params: { id: dataId }});
-    }
-  }
 }
 </script>
 

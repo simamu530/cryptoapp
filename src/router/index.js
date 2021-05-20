@@ -21,7 +21,7 @@ const routes = [
   // },
   {
     path: '/cryptolist',
-    name: 'Cryptolist',
+    name: 'cryptolist',
     component: Cryptolist
   },
   {
