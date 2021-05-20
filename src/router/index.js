@@ -24,6 +24,11 @@ const routes = [
     name: 'Cryptolist',
     component: Cryptolist
   },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: () => import('../views/CryptoDetail.vue')
+  }
 ]
 
 const router = new VueRouter({

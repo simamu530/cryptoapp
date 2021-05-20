@@ -4,10 +4,21 @@
       <p>銘柄一覧</p>
     </div>
     <div class="card-wrapper">
-      <div class="list-card">
+      <div class="list-card" v-for="detail in details" :key="detail.id">
         <Coinlist name = "BTC" />
         <Coinlist description = "ビットコイン（現物取引）" />
+        <router-link :to="`/detail/${detail.id}`">
         <button class="coin-detail">詳細</button>
+        </router-link>
+      </div>
+      <div class="list-card">
+        <Coinlist name = "BTC" />
+        <Coinlist description =
+         "ビットコイン
+        （現物取引）" />
+        <router-link to="/detail">
+        <button class="coin-detail">詳細</button>
+        </router-link>
       </div>
       <div class="list-card">
         <Coinlist name = "BTC" />
@@ -34,10 +45,10 @@
         <Coinlist description = "ビットコイン（現物取引）" />
         <button class="coin-detail">詳細</button>
       </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
+      <div v-for="detail in details" :key="detail.id">
+        <router-link :to="`/detail/${detail.id}`">
+        {{ detail.title }}
+        </router-link>
       </div>
     </div>
   </div>
@@ -51,6 +62,24 @@ export default {
   components: {
     Coinlist,
   },
+  data(){
+    return {
+      details: [
+        {
+          id:1,
+          title:'BTC'
+        },
+        {
+          id:2,
+          title:'ETH'
+        },
+        {
+          id:3,
+          title:'BCH'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -80,6 +109,7 @@ p {
   position: relative;
   width: 60%;
   top: 45%;
+  margin: 0 auto;
 
 }
 .list-card {

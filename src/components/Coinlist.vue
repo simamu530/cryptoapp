@@ -1,7 +1,7 @@
 <template>
   <div class="list-wrapper">
   <h2>{{ name }}</h2>
-  <p>{{ description }}</p>
+  <p style="white-space:pre-wrap; word-wrap:break-word;">{{ description }}</p>
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 export default {
   name: "Coinlist",
   props: ["name","description"],
+  
 }
 </script>
 
