@@ -22,11 +22,11 @@ const routes = [
   {
     path: '/cryptolist',
     name: 'cryptolist',
-    component: Cryptolist
+    component: Cryptolist,
   },
   {
-    path: '/detail/:id',
-    name: 'detail',
+    path: '/detail/:title',
+    name: 'CryptoDetail',
     component: () => import('../views/CryptoDetail.vue'),
     props: true,
   }

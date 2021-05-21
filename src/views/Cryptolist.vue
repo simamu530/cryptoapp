@@ -6,45 +6,12 @@
     </div>
     <div class="card-wrapper">
       <div class="list-card"  v-for="detail in details" :key="detail.id">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <router-link to="/detail">
-        <button class="coin-detail">詳細</button>
+        <Coinlist :name="detail.title" />
+        <Coinlist :description="detail.description" />
+        <router-link :to="{ name: 'CryptoDetail',params: {id:detail.id,title:detail.title,description:detail.description}}">
+        {{ detail.title }}
+        <button class="btn-detail">詳細</button>
         </router-link>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description =
-         "ビットコイン
-        （現物取引）" />
-        <router-link to="/detail">
-        <button class="coin-detail">詳細</button>
-        </router-link>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
-      </div>
-      <div class="list-card">
-        <Coinlist name = "BTC" />
-        <Coinlist description = "ビットコイン（現物取引）" />
-        <button class="coin-detail">詳細</button>
       </div>
     </div>
   </div>
@@ -54,12 +21,6 @@
 import Coinlist from "@/components/Coinlist.vue";
 
 export default {
-  props:{
-    id:{
-      type:String,
-      required:true,
-    }
-  },
   name: "Cryptolist",
   components: {
     Coinlist,
@@ -69,47 +30,62 @@ export default {
       details: [
         {
           id:1,
-          title:'BTC'
+          title:'BTC',
+          description: "ビットコイン（現物取引）"
         },
         {
           id:2,
-          title:'ETH'
+          title:'ETH',
+          description: "イーサリアム（現物取引）"
         },
         {
           id:3,
-          title:'BCH'
+          title:'BCH',
+          description: "ビットコインキャッシュ（現物取引）"
         },
         {
           id:4,
-          title:'LTC'
+          title:'LTC',
+          description: "ライトコイン（現物取引）"
         },
         {
           id:5,
-          title:'XRP'
+          title:'XRP',
+          description: "リップル（現物取引）"
         },
         {
           id:6,
-          title:'BTC_JPY'
+          title:'BTC_JPY',
+          description: "ビットコイン/円（レバレッジ取引）"
         },
         {
           id:7,
-          title:'ETH_JPY'
+          title:'ETH_JPY',
+          description: "イーサリアム/円（レバレッジ取引）"
         },
         {
           id:8,
-          title:'BCH_JPY'
+          title:'BCH_JPY',
+          description: "ビットコインキャッシュ/円（レバレッジ取引）"
         },
         {
           id:9,
-          title:'LTC_JPY'
+          title:'LTC_JPY',
+          description: "ライトコイン/円（レバレッジ取引）"
         },
         {
           id:10,
-          title:'XRP_JPY'
+          title:'XRP_JPY',
+          description: "リップル/円（レバレッジ取引）"
         },
       ]
     }
   },
+  methods: {
+    transition() {
+      this.$router.push({ name: "CryptoDetail", params: { id: 2}})
+    }
+  }
 }
 </script>
 

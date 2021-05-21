@@ -1,12 +1,55 @@
 <template>
   <div>
     <p>this is detail</p>
-    <p>{{detail.id}}</p>
+    <p>{{title}}{{description}}</p>
+    <!-- <p>{{detail.id}}</p> -->
+    <div class="btn-list">
+      <button class="btn-detail">BTC</button>
+      <button class="btn-detail">ETH</button>
+      <button class="btn-detail">BCH</button>
+      <button class="btn-detail">LTC</button>
+      <button class="btn-detail">XRP</button>
+      <button class="btn-detail">BTC_JPY</button>
+      <button class="btn-detail">ETH_JPY</button>
+      <button class="btn-detail">BCH_JPY</button>
+      <button class="btn-detail">LTC_JPY</button>
+      <button class="btn-detail">XRP_JPY</button>
+    </div>
+    <div>
+      <h2>最終取引価格</h2>
+      <p>000,0000</p>
+    </div>
+    <div>
+      <h2>価格取得時刻</h2>
+      <p>000,000</p>
+    </div>
+    <div>
+      <h2>当日高値</h2>
+      <p>000,000</p>
+    </div>
+    <div>
+      <h2>当日安値</h2>
+      <p>000,000</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  props:{
+    id:{
+      type:Number,
+      required:true,
+    },
+    title:{
+      type:String,
+      required:true,
+    },
+    description:{
+      type:String,
+      required:true,
+    }
+  },
   data(){
     return {
       details: [
@@ -63,3 +106,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>
