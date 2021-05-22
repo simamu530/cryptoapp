@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>this is detail</p>
-    <p>{{title}}{{description}}</p>
+    <p>{{title}}</p>
     <!-- <p>{{detail.id}}</p> -->
     <div class="btn-list">
       <button class="btn-detail">BTC</button>
@@ -15,40 +15,30 @@
       <button class="btn-detail">LTC_JPY</button>
       <button class="btn-detail">XRP_JPY</button>
     </div>
-    <div>
-      <h2>最終取引価格</h2>
-      <p>000,0000</p>
-    </div>
-    <div>
-      <h2>価格取得時刻</h2>
-      <p>000,000</p>
-    </div>
-    <div>
-      <h2>当日高値</h2>
-      <p>000,000</p>
-    </div>
-    <div>
-      <h2>当日安値</h2>
-      <p>000,000</p>
-    </div>
+    <CryptoAPI></CryptoAPI>
   </div>
 </template>
 
 <script>
+import CryptoAPI from '../components/CryptoAPI.vue';
+
 export default {
+  components: {
+    CryptoAPI
+  },
   props:{
-    id:{
-      type:Number,
-      required:true,
-    },
+    // id:{
+    //   type:Number,
+    //   required:true,
+    // },
     title:{
       type:String,
       required:true,
     },
-    description:{
-      type:String,
-      required:true,
-    }
+    // description:{
+    //   type:String,
+    //   required:true,
+    // }
   },
   data(){
     return {
