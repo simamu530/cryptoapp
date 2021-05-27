@@ -29,7 +29,7 @@ const routes = [
     name: 'CryptoDetail',
     component: () => import('../views/CryptoDetail.vue'),
     props: true,
-  }
+  },
 ]
 
 const router = new VueRouter({

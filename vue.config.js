@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    proxy: 'https://api.coin.z.com/public'
+    proxy: 'https://api.coin.z.com/'
   }
 };

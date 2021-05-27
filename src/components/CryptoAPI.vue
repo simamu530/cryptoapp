@@ -1,33 +1,61 @@
 <template>
   <div class="api-container">
     <div>
+      {{btc}}
       <h2>最終取引価格</h2>
-      <p>000,0000</p>
+      <p>{{btclast}}</p>
     </div>
     <div>
       <h2>価格取得時刻</h2>
-      <p>000,000</p>
+      <p>{{btctime}}</p>
     </div>
     <div>
       <h2>当日高値</h2>
-      <p>000,000</p>
+      <p>{{btchigh}}</p>
     </div>
     <div>
       <h2>当日安値</h2>
-      <p>000,000</p>
+      <p>{{btclow}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import CryptoDetail from '../views/CryptoDetail.vue'
+
 export default {
-  mounted(){
-    const params = {
-      "param1": "BTC&page",
-      "param2": "1&count"
+  components: {
+    CryptoDetail
+  },
+  data() {
+    return {
+      btc: null,
+      btclast: null,
+      btctime: null,
+      btchigh: null,
+      btclow: null,
+
+      eth: null,
+      ethlast: null,
+      ethtime: null,
+      ethhigh: null,
+      ethlow: null,
     }
-     this.$axios.get("/v1/trades?symbol=BTC&page=1&count=10", {params: params})
-      .then((response => {console.log(response)}))
+  },
+  created(){
+    this.$axios.get("/public/v1/ticker?symbol=${this.title}")
+    .then(response => {console.log(response);
+    this.btc = response;
+    this.btclast = response.data.data[5].last;
+    this.btctime = response.data.data[5].timestamp;
+    this.btchigh = response.data.data[5].high;
+    this.btclow = response.data.data[5].low;
+
+    this.ethlast = response.data.data[6].last;
+    this.ethtime = response.data.data[6].timestamp;
+    this.ethhigh = response.data.data[6].high;
+    this.ethlow = response.data.data[6].low;
+    })
   },
 }
 </script>

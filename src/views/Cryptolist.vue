@@ -2,14 +2,12 @@
   <div class="list-container">
     <div class="list-title">
       <p>銘柄一覧</p>
-      <router-link to="/detail">deta</router-link>
     </div>
     <div class="card-wrapper">
       <div class="list-card"  v-for="detail in details" :key="detail.id">
         <Coinlist :name="detail.title" />
         <Coinlist :description="detail.description" />
         <router-link :to="{ name: 'CryptoDetail',params: {id:detail.id,title:detail.title,description:detail.description}}">
-        {{ detail.title }}
         <button class="btn-detail">詳細</button>
         </router-link>
       </div>
