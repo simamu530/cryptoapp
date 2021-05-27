@@ -24,6 +24,7 @@
 import CryptoDetail from '../views/CryptoDetail.vue'
 
 export default {
+  props: [title],
   components: {
     CryptoDetail
   },
