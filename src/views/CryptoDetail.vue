@@ -15,7 +15,7 @@
       <button class="btn-detail">LTC_JPY</button>
       <button class="btn-detail">XRP_JPY</button>
     </div>
-    <CryptoAPI></CryptoAPI>
+    <!-- <CryptoAPI></CryptoAPI> -->
   </div>
 </template>
 

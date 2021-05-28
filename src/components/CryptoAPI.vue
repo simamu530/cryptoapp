@@ -36,27 +36,17 @@ export default {
       btctime: null,
       btchigh: null,
       btclow: null,
-
-      eth: null,
-      ethlast: null,
-      ethtime: null,
-      ethhigh: null,
-      ethlow: null,
     }
   },
   created(){
-    this.$axios.get("/public/v1/ticker?symbol=${this.title}")
+    console.log(this.title);
+    this.$axios.get(`/public/v1/ticker?symbol=${this.title}`)
     .then(response => {console.log(response);
     this.btc = response;
-    this.btclast = response.data.data[5].last;
-    this.btctime = response.data.data[5].timestamp;
-    this.btchigh = response.data.data[5].high;
-    this.btclow = response.data.data[5].low;
-
-    this.ethlast = response.data.data[6].last;
-    this.ethtime = response.data.data[6].timestamp;
-    this.ethhigh = response.data.data[6].high;
-    this.ethlow = response.data.data[6].low;
+    this.btclast = response.data.data[0].last;
+    this.btctime = response.data.data[0].timestamp;
+    this.btchigh = response.data.data[0].high;
+    this.btclow = response.data.data[0].low;
     })
   },
 }
