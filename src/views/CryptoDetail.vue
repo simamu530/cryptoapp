@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>this is detail</p>
-    <p>{{title}}</p>
+    <p><CryptoAPI :title="title" />{{title}}</p>
     <!-- <p>{{detail.id}}</p> -->
     <div class="btn-list">
       <button class="btn-detail">BTC</button>

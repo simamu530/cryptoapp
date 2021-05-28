@@ -21,12 +21,13 @@
 </template>
 
 <script>
-import CryptoDetail from '../views/CryptoDetail.vue'
 
 export default {
-  props: [title],
-  components: {
-    CryptoDetail
+  props: {
+    title: {
+      type: String,
+      required: true,
+    }
   },
   data() {
     return {
