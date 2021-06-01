@@ -335,7 +335,6 @@ template {
 }
 /*# sourceMappingURL=bootstrap-reboot.css.map */
 html {
-  height: 100vh;
   background: #0F0E17;
 }
 
