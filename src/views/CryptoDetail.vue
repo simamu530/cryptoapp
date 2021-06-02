@@ -1,7 +1,6 @@
 <template>
   <div class="crypto-detail">
     <p class="crypto-title">{{title}}</p>
-    <!-- <p>{{detail.id}}</p> -->
     <div class="btn-list">
       <button class="btn-detail" @click="changeCrypto('BTC')">BTC</button>
       <button class="btn-detail" @click="changeCrypto('ETH')">ETH</button>
@@ -15,7 +14,6 @@
       <button class="btn-detail" @click="changeCrypto('XRP_JPY')">XRP_JPY</button>
     </div>
     <CryptoAPI :title="title"></CryptoAPI>
-    <!-- <CryptoAPI></CryptoAPI> -->
   </div>
 </template>
 
@@ -63,15 +61,16 @@ export default {
   }
   .btn-list{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     margin-top: 5%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
   }
   .btn-detail{
-    /* display:block;
-    width:100%;
-    height:100%; */
+    display:block;
+    width:9%;
     text-decoration: none;
     background:#FF8906;
     text-align:center;
