@@ -1,9 +1,12 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
+    <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+      <router-link to="/createacc">新規登録</router-link>
+      <router-link to="/login">ログイン</router-link>
+      <router-link to="/Cryptolist">銘柄一覧</router-link>
+      <router-link to="/CryptoDetail">詳細</router-link>
+    </div>
     <router-view/>
   </div>
 </template>
@@ -207,6 +210,7 @@ label {
 
 button {
   border-radius: 0;
+  border: none;
 }
 
 button:focus:not(:focus-visible) {

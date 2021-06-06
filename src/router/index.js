@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Cryptolist from '../views/Cryptolist.vue'
+import Login from '../views/Login.vue'
+import CreateAcc from '../views/CreateAcc.vue'
 
 
 Vue.use(VueRouter)
@@ -19,6 +21,16 @@ const routes = [
   //   // which is lazy-loaded when the route is visited.
   //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   // },
+  {
+    path: '/createacc',
+    name: 'CreateAcc',
+    component: CreateAcc,
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login,
+  },
   {
     path: '/cryptolist',
     name: 'cryptolist',
