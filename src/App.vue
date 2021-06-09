@@ -14,14 +14,18 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/app'
+import 'firebase/firestore'
+
 export default {
   data() {
     return{
-      message: 'ログインができていません'
+      message: 'ログインができていません',
     }
   },
-  created(){
+  created() {
+    console.log(firebase)
     firebase
     .auth()
     .onAuthStateChanged((user) => {

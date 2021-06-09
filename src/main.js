@@ -3,10 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/app'
+import 'firebase/firestore'
+import { firestorePlugin } from 'vuefire'
+
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+Vue.use(firestorePlugin)
 
 var firebaseConfig = {
     apiKey: "AIzaSyBsEHXktW2uNTYKb6TBam87wBdbEU3SNm4",
