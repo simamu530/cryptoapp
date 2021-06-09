@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import firebase from '~/plugins/firebase'
+import firebase from 'firebase'
 export default {
   data(){
     return {

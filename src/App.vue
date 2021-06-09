@@ -1,15 +1,48 @@
 <template>
   <div id="app">
     <div id="nav">
+      {{message}}
       <router-link to="/">Home</router-link> |
-      <router-link to="/createacc">新規登録</router-link>
-      <router-link to="/login">ログイン</router-link>
-      <router-link to="/Cryptolist">銘柄一覧</router-link>
-      <router-link to="/CryptoDetail">詳細</router-link>
+      <router-link to="/createacc">新規登録</router-link> |
+      <router-link to="/Cryptolist">銘柄一覧</router-link> |
+      <router-link to="/CryptoDetail">詳細</router-link> |
+      <router-link to="/login">ログイン</router-link> |
+      <router-link @click.native="logout()">ログアウト</router-link> |
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import firebase from 'firebase'
+export default {
+  data() {
+    return{
+      message: 'ログインができていません'
+    }
+  },
+  created(){
+    firebase
+    .auth()
+    .onAuthStateChanged((user) => {
+      if(user) {
+        this.message = 'ログイン済みです'
+      }
+    })
+  },
+  methods: {
+    logout() {
+      firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        alert('ログアウトが完了しました')
+        this.$router.replace('/login')
+      })
+    }
+  },
+}
+</script>
 
 <style>
 /*!

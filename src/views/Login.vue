@@ -3,34 +3,35 @@
     <h1>CryptoApp</h1>
     <div class="form-wapper">
       <p>メールアドレス</p>
-      <input type="text" v-model="mailAddress" required />
+      <input type="email" v-model="mailAddress" required />
       <p>パスワード</p>
-      <input type="text" v-model="pass" required />
+      <input type="password" v-model="pass" required />
       <button @click="login">ログイン</button>
     </div>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase'
 export default {
   data(){
     return {
-      mailAddress: "",
-      pass:""
+      mailAddress: null,
+      pass:null,
     }
   },
   methods: {
     login() {
-      if (!this.email || !this.password) {
+      if (!this.mailAddress || !this.pass) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
       }
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
+        .signInWithEmailAndPassword(this.mailAddress, this.pass)
         .then(() => {
           alert('ログインが完了しました')
-          this.$router.push('/')
+          this.$router.push('/Cryptolist')
         })
         .catch((error) => {
           switch (error.code) {
