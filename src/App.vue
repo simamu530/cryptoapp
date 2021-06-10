@@ -7,16 +7,14 @@
       <router-link to="/Cryptolist">銘柄一覧</router-link> |
       <router-link to="/CryptoDetail">詳細</router-link> |
       <router-link to="/login">ログイン</router-link> |
-      <router-link @click.native="logout()">ログアウト</router-link> |
+      <router-link to="/login" @click.native="logout()">ログアウト</router-link> |
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase/app'
-import 'firebase/app'
-import 'firebase/firestore'
+import firebase from 'firebase'
 
 export default {
   data() {
@@ -25,7 +23,6 @@ export default {
     }
   },
   created() {
-    console.log(firebase)
     firebase
     .auth()
     .onAuthStateChanged((user) => {
