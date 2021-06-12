@@ -8,11 +8,14 @@ import CreateAcc from '../views/CreateAcc.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
+  {
+    path: '/',
+    name: 'Home',
+    component: Login,
+    // beforeEnter(to, from, next) {
+    //   next('/login')
+    // }
+  },
   // {
   //   path: '/about',
   //   name: 'About',

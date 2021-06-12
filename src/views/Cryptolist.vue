@@ -3,6 +3,7 @@
     <div class="list-title">
       <p>銘柄一覧</p>
     </div>
+    <div>
     <div class="card-wrapper">
       <div class="list-card"  v-for="detail in details" :key="detail.id">
         <Coinlist :name="detail.title" />
@@ -11,6 +12,7 @@
         <button class="btn-detail">詳細</button>
         </router-link>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -111,14 +113,15 @@ p {
   flex-wrap: wrap;
   justify-content: space-around;
   position: relative;
-  width: 60%;
-  top: 45%;
+  align-items: center;
+  /* width: 60%; */
+  /* top: 45%; */
   margin: 0 auto;
 
 }
 .list-card {
   text-align: center;
-  margin: 1em 1em 1em 1em;
+  width: 20%;
 }
 
 @media screen and (max-width: 768px){

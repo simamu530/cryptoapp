@@ -31,7 +31,6 @@ export default {
         .signInWithEmailAndPassword(this.mailAddress, this.pass)
         .then(() => {
           alert('ログインが完了しました')
-          this.$router.push('/Cryptolist')
         })
         .catch((error) => {
           switch (error.code) {

@@ -2,12 +2,10 @@
   <div id="app">
     <div id="nav">
       {{message}}
-      <router-link to="/">Home</router-link> |
-      <router-link to="/createacc">新規登録</router-link> |
-      <router-link to="/Cryptolist">銘柄一覧</router-link> |
-      <router-link to="/CryptoDetail">詳細</router-link> |
-      <router-link to="/login">ログイン</router-link> |
-      <router-link to="/login" @click.native="logout()">ログアウト</router-link> |
+      <router-link to="/createacc">新規登録</router-link>
+      <router-link to="/Cryptolist">銘柄一覧</router-link>
+      <router-link to="/login" v-if="isLogin !== true">ログイン</router-link>
+      <button @click="logout()" v-if="isLogin === true">ログアウト</button> 
     </div>
     <router-view/>
   </div>
@@ -20,14 +18,26 @@ export default {
   data() {
     return{
       message: 'ログインができていません',
+      isLogin: false
+
     }
   },
   created() {
+    console.log(firebase.auth().currentUser)
+    console.log(this.$route.path)
     firebase
     .auth()
     .onAuthStateChanged((user) => {
       if(user) {
-        this.message = 'ログイン済みです'
+        this.message = 'ログイン済みです';
+        this.isLogin = true
+        if(this.$route.path !== '/Cryptolist'){ 
+          this.$router.push('/Cryptolist')
+        }
+      } else {
+        if(this.$route.path !== '/login') {
+        this.$router.push('/login')
+        }
       }
     })
   },
@@ -38,7 +48,7 @@ export default {
       .signOut()
       .then(() => {
         alert('ログアウトが完了しました')
-        this.$router.replace('/login')
+        this.isLogin = false
       })
     }
   },
